@@ -1,0 +1,45 @@
+{
+  "name": "ozma-nestjs-language",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [
+    "nestjs",
+    "crud",
+    "sequelize",
+    "prisma"
+  ],
+  "author": "Michael Gorbachev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mix2000/nestjs_language/issues"
+  },
+  "engines": {
+    "node": ">=18.12.0"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/sequelize": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
+    "prisma": "^3.0.0 || ^4.0.0",
+    "sequelize": "^6.33.0",
+    "sequelize-typescript": "^2.1.5",
+    "typescript": "^5.1.3"
+  }
+}

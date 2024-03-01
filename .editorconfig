@@ -1,0 +1,10 @@
+root = true # Корневой конфиг, see http://editorconfig.org
+
+[*] # Для всех файлов.
+end_of_line = lf # Используем unix переносы строк.
+insert_final_newline = true # Позволяет убедиться, что в конце файла всегда будет новая строка.
+indent_style = space # Отступы = пробелы.
+indent_size = 4 # Отступы в 4 пробела.
+charset = utf-8 # Кодировка.
+max_line_length = 180 # Максимальное кол-во символов в строке.
+trim_trailing_whitespace = true # Позволяет убрать пробелы из концов строк.
