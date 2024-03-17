@@ -1,5 +1,3 @@
-import { LanguageModel, TranslationModel } from './entity/sequalize.model';
-
 export interface ILanguage {
     id: number;
     name: string;

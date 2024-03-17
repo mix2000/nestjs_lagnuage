@@ -1,9 +1,9 @@
-import { Controller, Get, Post, Body, Param, Put, Delete, Inject } from '@nestjs/common';
-import { ILanguageService } from './interfaces';
+import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
+import { LanguageTypeormService } from './service/language-typeorm.service';
 
 @Controller('languages')
 export class LanguageController {
-    constructor(@Inject('LANGUAGE_SERVICE') private languageService: ILanguageService) {}
+    constructor(private languageService: LanguageTypeormService) {}
 
     @Get()
     async findAll() {
