@@ -2,7 +2,7 @@ import { PrimaryGeneratedColumn, Column, Entity, ManyToOne, JoinColumn, Index } 
 import { ILanguage, ITranslation } from '../interfaces';
 
 @Entity('ozma-translation')
-@Index(['languageId', 'categoryType'], { unique: true })
+@Index(['categoryType', 'elementId', 'languageId', 'fieldName'], { unique: true })
 export class TranslationEntity implements ITranslation {
     @PrimaryGeneratedColumn({ comment: 'Идентификатор' })
     id!: number;
@@ -12,8 +12,19 @@ export class TranslationEntity implements ITranslation {
     @Column({ comment: 'Идентификатор языка' })
     languageId: number;
 
+    @Column({ name: 'elementId', comment: 'Идентификатор элемента' })
+    elementId: number;
+
     @Column({
-        comment: 'Идентификатор типа категории',
+        type: 'varchar',
+        name: 'fieldName',
+        length: 32,
+        comment: 'Название поля',
+    })
+    fieldName: string;
+
+    @Column({
+        comment: 'Идентификатор категории',
         type: 'varchar',
         length: 20,
     })

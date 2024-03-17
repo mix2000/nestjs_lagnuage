@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { FindOptionsWhere } from 'typeorm/find-options/FindOptionsWhere';
 import { LanguageEntity, TranslationEntity } from '../entity/typeorm.entity';
 import { ILanguageService } from '../interfaces';
 
@@ -49,6 +50,14 @@ export class LanguageTypeormService implements ILanguageService {
 
     async findTranslationById(id: number): Promise<TranslationEntity> {
         return this.translationRepository.findOneBy({ id });
+    }
+
+    async findTranslationByFilter(
+        filter: FindOptionsWhere<TranslationEntity>[] | FindOptionsWhere<TranslationEntity>,
+    ): Promise<TranslationEntity[]> {
+        return this.translationRepository.find({
+            where: filter,
+        });
     }
 
     async createTranslation(data: {

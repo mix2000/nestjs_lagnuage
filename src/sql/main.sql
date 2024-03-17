@@ -1,9 +1,3 @@
-## Language module for nestjs
-
-
-### sql
-
-```sql
 CREATE TABLE `ozma-language` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
   `name` varchar(200) NOT NULL COMMENT 'Имя языка',
@@ -23,5 +17,3 @@ CREATE TABLE `ozma-translation` (
   KEY `FK_languageId` (`languageId`),
   CONSTRAINT `FK_languageId` FOREIGN KEY (`languageId`) REFERENCES `ozma-language` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-```
