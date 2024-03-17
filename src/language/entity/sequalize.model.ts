@@ -1,4 +1,5 @@
 import { Table, Column, DataType, PrimaryKey, AutoIncrement, Model, ForeignKey } from 'sequelize-typescript';
+import { ILanguage, ITranslation } from '../interfaces';
 
 @Table({
     tableName: 'ozma-translation',
@@ -9,7 +10,7 @@ import { Table, Column, DataType, PrimaryKey, AutoIncrement, Model, ForeignKey }
         },
     ],
 })
-export class TranslationModel extends Model<TranslationModel> {
+export class TranslationModel extends Model<TranslationModel> implements ITranslation {
     @PrimaryKey
     @AutoIncrement
     @Column({
@@ -43,7 +44,7 @@ export class TranslationModel extends Model<TranslationModel> {
 }
 
 @Table({ tableName: 'ozma-language' })
-export class LanguageModel extends Model<LanguageModel> {
+export class LanguageModel extends Model<LanguageModel> implements ILanguage {
     @PrimaryKey
     @AutoIncrement
     @Column({

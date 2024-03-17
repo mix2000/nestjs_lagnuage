@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 import { ILanguageService } from '../interfaces';
 
 @Injectable()
-export class PrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy, ILanguageService {
+export class LanguagePrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy, ILanguageService {
     async onModuleInit() {
         await this.$connect();
     }

@@ -4,7 +4,7 @@ import { LanguageModel, TranslationModel } from '../entity/sequalize.model';
 import { ILanguageService } from '../interfaces';
 
 @Injectable()
-export class SequelizeService implements ILanguageService {
+export class LanguageSequelizeService implements ILanguageService {
     constructor(
         @InjectModel(LanguageModel)
         private languageModel: typeof LanguageModel,
@@ -25,10 +25,14 @@ export class SequelizeService implements ILanguageService {
         return this.languageModel.create(data);
     }
 
-    async updateLanguage(id: number, data: { name?: string; abbreviation?: string }): Promise<[affectedCount: number]> {
-        return this.languageModel.update(data, {
+    async updateLanguage(id: number, data: { name?: string; abbreviation?: string }): Promise<LanguageModel> {
+        await this.languageModel.update(data, {
             where: { id },
         });
+
+        const result = await this.findLanguageById(id);
+
+        return result.dataValues;
     }
 
     async deleteLanguage(id: number): Promise<void> {
@@ -58,10 +62,13 @@ export class SequelizeService implements ILanguageService {
     async updateTranslation(
         id: number,
         data: { languageId?: number; categoryType?: string; value?: string },
-    ): Promise<[affectedCount: number]> {
-        return this.translationModel.update(data, {
+    ): Promise<TranslationModel> {
+        await this.translationModel.update(data, {
             where: { id },
         });
+        const result = await this.findTranslationById(id);
+
+        return result.dataValues;
     }
 
     async deleteTranslation(id: number): Promise<void> {
