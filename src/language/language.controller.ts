@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
-import { LanguageTypeormService } from './service/language-typeorm.service';
+import { LanguageTypeormService } from './service';
 
 @Controller('languages')
 export class LanguageController {

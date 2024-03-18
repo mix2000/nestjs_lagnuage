@@ -1,3 +1,5 @@
+import { FindOptionsWhere } from 'typeorm/find-options/FindOptionsWhere';
+import { TranslationEntity } from './entity';
 export interface ILanguage {
     id: number;
     name: string;
@@ -6,6 +8,8 @@ export interface ILanguage {
 export interface ITranslation {
     id: number;
     languageId: number;
+    fieldName: string;
+    elementId: number;
     categoryType: string;
     value: string;
 }
@@ -21,6 +25,9 @@ export interface ILanguageService {
         abbreviation?: string;
     }): Promise<ILanguage>;
     deleteLanguage(id: number): Promise<void>;
+}
+export interface ITranslationService {
+    findTranslationByFilter(filter: FindOptionsWhere<TranslationEntity>[] | FindOptionsWhere<TranslationEntity>): Promise<TranslationEntity[]>;
     findAllTranslations(): Promise<ITranslation[]>;
     findTranslationById(id: number): Promise<ITranslation>;
     createTranslation(data: {

@@ -9,18 +9,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LanguageModule = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const typeorm_entity_1 = require("./entity/typeorm.entity");
+const entity_1 = require("./entity");
 const language_controller_1 = require("./language.controller");
-const language_typeorm_service_1 = require("./service/language-typeorm.service");
+const service_1 = require("./service");
 let LanguageModule = class LanguageModule {
 };
 exports.LanguageModule = LanguageModule;
 exports.LanguageModule = LanguageModule = __decorate([
     (0, common_1.Module)({
-        imports: [typeorm_1.TypeOrmModule.forFeature([typeorm_entity_1.LanguageEntity, typeorm_entity_1.TranslationEntity])],
+        imports: [typeorm_1.TypeOrmModule.forFeature([entity_1.LanguageEntity, entity_1.TranslationEntity])],
         controllers: [language_controller_1.LanguageController],
-        providers: [language_typeorm_service_1.LanguageTypeormService],
-        exports: [language_typeorm_service_1.LanguageTypeormService],
+        providers: [service_1.LanguageTypeormService, service_1.TranslationTypeormService],
+        exports: [service_1.LanguageTypeormService, service_1.TranslationTypeormService],
     })
 ], LanguageModule);
 //# sourceMappingURL=language.module.js.map

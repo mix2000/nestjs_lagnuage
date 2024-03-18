@@ -1,5 +1,6 @@
-import { PrimaryGeneratedColumn, Column, Entity, ManyToOne, JoinColumn, Index } from 'typeorm';
-import { ILanguage, ITranslation } from '../interfaces';
+import { Column, Entity, Index, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { ITranslation } from '../../interfaces';
+import { LanguageEntity } from './language.entity';
 
 @Entity('ozma-translation')
 @Index(['categoryType', 'elementId', 'languageId', 'fieldName'], { unique: true })
@@ -36,24 +37,4 @@ export class TranslationEntity implements ITranslation {
         length: 512,
     })
     value: string;
-}
-
-@Entity('ozma-language')
-export class LanguageEntity implements ILanguage {
-    @PrimaryGeneratedColumn({ comment: 'Идентификатор' })
-    id!: number;
-
-    @Column({
-        comment: 'Имя языка',
-        type: 'varchar',
-        length: 200,
-    })
-    name: string;
-
-    @Column({
-        comment: 'Аббревиатура языка',
-        type: 'varchar',
-        length: 5,
-    })
-    abbreviation: string;
 }

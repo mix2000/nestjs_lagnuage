@@ -14,11 +14,13 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LanguageTypeormService = exports.LanguageModule = void 0;
+exports.TranslationTypeormService = exports.LanguageTypeormService = exports.LanguageModule = void 0;
 var language_module_1 = require("./language/language.module");
 Object.defineProperty(exports, "LanguageModule", { enumerable: true, get: function () { return language_module_1.LanguageModule; } });
-var language_typeorm_service_1 = require("./language/service/language-typeorm.service");
+var language_typeorm_service_1 = require("./language/service/typeorm/language-typeorm.service");
 Object.defineProperty(exports, "LanguageTypeormService", { enumerable: true, get: function () { return language_typeorm_service_1.LanguageTypeormService; } });
+var translation_typeorm_service_1 = require("./language/service/typeorm/translation-typeorm.service");
+Object.defineProperty(exports, "TranslationTypeormService", { enumerable: true, get: function () { return translation_typeorm_service_1.TranslationTypeormService; } });
 __exportStar(require("./language/interfaces"), exports);
-__exportStar(require("./language/entity/typeorm.entity"), exports);
+__exportStar(require("./language/entity"), exports);
 //# sourceMappingURL=index.js.map
