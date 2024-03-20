@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LanguageController = void 0;
 const common_1 = require("@nestjs/common");
 const service_1 = require("./service");
+const swagger_1 = require("./swagger");
 let LanguageController = class LanguageController {
     constructor(languageService) {
         this.languageService = languageService;
@@ -38,12 +39,14 @@ let LanguageController = class LanguageController {
 exports.LanguageController = LanguageController;
 __decorate([
     (0, common_1.Get)(),
+    (0, swagger_1.SwaggerFindAllLanguages)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], LanguageController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),
+    (0, swagger_1.SwaggerFindLanguageById)(),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -51,6 +54,7 @@ __decorate([
 ], LanguageController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Post)(),
+    (0, swagger_1.SwaggerCreateLanguage)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
@@ -58,6 +62,7 @@ __decorate([
 ], LanguageController.prototype, "create", null);
 __decorate([
     (0, common_1.Put)(':id'),
+    (0, swagger_1.SwaggerUpdateLanguage)(),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -66,6 +71,7 @@ __decorate([
 ], LanguageController.prototype, "update", null);
 __decorate([
     (0, common_1.Delete)(':id'),
+    (0, swagger_1.SwaggerDeleteLanguage)(),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

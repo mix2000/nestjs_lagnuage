@@ -1,13 +1,14 @@
+import { ILanguage } from './interfaces';
 import { LanguageTypeormService } from './service';
 export declare class LanguageController {
     private languageService;
     constructor(languageService: LanguageTypeormService);
-    findAll(): Promise<import("./entity").LanguageEntity[]>;
-    findOne(id: string): Promise<import("./entity").LanguageEntity>;
+    findAll(): Promise<ILanguage[]>;
+    findOne(id: string): Promise<ILanguage>;
     create(languageData: {
         name: string;
         abbreviation: string;
-    }): Promise<import("./entity").LanguageEntity>;
+    }): Promise<ILanguage>;
     update(id: string, languageData: {
         name?: string;
         abbreviation?: string;

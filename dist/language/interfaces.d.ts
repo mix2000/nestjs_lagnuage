@@ -14,6 +14,7 @@ export interface ITranslation {
     value: string;
 }
 export interface ILanguageService {
+    findLanguagesByFilter(filter: FindOptionsWhere<ILanguage>[] | FindOptionsWhere<ILanguage>): Promise<ILanguage[]>;
     findAllLanguages(): Promise<ILanguage[]>;
     findLanguageById(id: number): Promise<ILanguage>;
     createLanguage(data: {
