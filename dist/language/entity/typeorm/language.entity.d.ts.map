@@ -1,0 +1,1 @@
+{"version":3,"file":"language.entity.d.ts","sourceRoot":"","sources":["../../../../src/language/entity/typeorm/language.entity.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,SAAS,EAAE,MAAM,kBAAkB,CAAC;AAE7C,qBACa,cAAe,YAAW,SAAS;IAE5C,EAAE,EAAG,MAAM,CAAC;IAOZ,IAAI,EAAE,MAAM,CAAC;IAOb,YAAY,EAAE,MAAM,CAAC;CACxB"}
